@@ -8,7 +8,7 @@ const seeds = Array.from({ length: 10 }, (_, i) => 76 + i);
   let total = 0;
 
   for (const seed of seeds) {
-    const url = `https://datadash-seed${seed}.example.com`; // Replace with actual URL pattern
+    const url = `https://sanand0.github.io/tdsdata/js_table/?seed=${seed}`;
     await page.goto(url);
     const numbers = await page.$$eval("table td", cells =>
       cells.map(cell => parseFloat(cell.innerText)).filter(n => !isNaN(n))
