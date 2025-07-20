@@ -1,0 +1,23 @@
+{
+  "name": "roerepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/24f2008495/roe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/24f2008495/roe/issues"
+  },
+  "homepage": "https://github.com/24f2008495/roe#readme",
+  "devDependencies": {
+    "playwright": "^1.54.1"
+  }
+}
