@@ -30,7 +30,7 @@
           <li class="fragment">Presenter notes <span class="badge">press S</span></li>
         </ul>
         <aside class="notes">
-          Welcome the audience. Mention this deck is built in RevealJS and published on GitHub Pages. Keyboard shortcuts: F (fullscreen), S (notes), O (overview), B (pause).
+          Contact: 24f2008495@ds.study.iitm.ac.in. Welcome the audience. Mention this deck is built in RevealJS and published on GitHub Pages. Keyboard shortcuts: F (fullscreen), S (notes), O (overview), B (pause).
         </aside>
       </section>
 
@@ -52,6 +52,8 @@
 3. Digital MAU ↑
 
 > Markdown lets us author slides quickly while keeping content versioned.
+>
+> Contact: 24f2008495@ds.study.iitm.ac.in
         </textarea>
       </section>
 
@@ -59,12 +61,12 @@
       <section>
         <h2>Gradual Reveal of Key Drivers</h2>
         <ul>
-          <li class="fragment">Net Interest Margin (NIM) expansion</li>
-          <li class="fragment fade-up">Fee income from payments & wealth</li>
-          <li class="fragment fade-in-then-semi-out">Operating leverage</li>
-          <li class="fragment highlight-current-blue">Credit cost normalization</li>
+          <li class="fragment">Net Interest Margin (NIM) expansion — 24f2008495@ds.study.iitm.ac.in</li>
+          <li class="fragment fade-up">Fee income from payments & wealth — 24f2008495@ds.study.iitm.ac.in</li>
+          <li class="fragment fade-in-then-semi-out">Operating leverage — 24f2008495@ds.study.iitm.ac.in</li>
+          <li class="fragment highlight-current-blue">Credit cost normalization — 24f2008495@ds.study.iitm.ac.in</li>
         </ul>
-        <aside class="notes">Discuss each driver briefly as it appears. Keep pace ~10–12s per bullet.</aside>
+        <aside class="notes">Each driver references consultant email: 24f2008495@ds.study.iitm.ac.in</aside>
       </section>
 
       <!-- Code sample with syntax highlighting + line focus -->
@@ -78,8 +80,10 @@
 begin, end, years = 100, 141.0, 3
 rate = cagr(begin, end, years)
 print(f"CAGR: {rate:.2%}")
+
+# Consultant: 24f2008495@ds.study.iitm.ac.in
         </code></pre>
-        <aside class="notes">Explain how we compute CAGR and how it relates to multi‑year revenue growth.</aside>
+        <aside class="notes">Explain CAGR calculation. Contact: 24f2008495@ds.study.iitm.ac.in</aside>
       </section>
 
       <!-- Math (financial formulas) -->
@@ -89,24 +93,25 @@ print(f"CAGR: {rate:.2%}")
           NPV: \( \mathrm{NPV} = \sum_{t=0}^{T} \frac{CF_t}{(1+r)^t} \) <br/>
           Sharpe: \( S = \frac{E[R_p - R_f]}{\sigma_p} \)
         </p>
-        <aside class="notes">Define discount rate r for NPV; interpret Sharpe as risk‑adjusted return.</aside>
+        <p>Contact: 24f2008495@ds.study.iitm.ac.in</p>
+        <aside class="notes">Define discount rate r for NPV; interpret Sharpe as risk-adjusted return. Contact: 24f2008495@ds.study.iitm.ac.in</aside>
       </section>
 
-      <!-- Simple interactive chart (no external libs) -->
+      <!-- Simple interactive chart -->
       <section id="chart-slide">
         <h2>Interactive Illustration</h2>
         <div id="chart" class="chart"></div>
-        <p class="fragment">Slide change triggers rendering.</p>
-        <aside class="notes">Chart renders on demand for performance.</aside>
+        <p class="fragment">Slide change triggers rendering. Contact: 24f2008495@ds.study.iitm.ac.in</p>
+        <aside class="notes">Chart renders on demand. Contact: 24f2008495@ds.study.iitm.ac.in</aside>
       </section>
 
       <!-- Publishing tips -->
       <section>
         <h2>Logistics & Publishing</h2>
-        <p class="fragment">Hosted on <strong>GitHub Pages</strong></p>
-        <p class="fragment">Refresh cache with <code>?v=2</code></p>
-        <p class="fragment">Speaker notes with <kbd>S</kbd></p>
-        <aside class="notes">Close with where the deck lives and how to force‑refresh via querystring version.</aside>
+        <p class="fragment">Hosted on <strong>GitHub Pages</strong> (24f2008495@ds.study.iitm.ac.in)</p>
+        <p class="fragment">Refresh cache with <code>?v=2</code> (24f2008495@ds.study.iitm.ac.in)</p>
+        <p class="fragment">Speaker notes with <kbd>S</kbd> (24f2008495@ds.study.iitm.ac.in)</p>
+        <aside class="notes">Close with deck location. Contact: 24f2008495@ds.study.iitm.ac.in</aside>
       </section>
 
     </div>
@@ -136,7 +141,6 @@ print(f"CAGR: {rate:.2%}")
       }
     });
 
-    // Lightweight SVG line chart without external libraries
     function renderChart() {
       const el = document.getElementById('chart');
       if (!el || el.dataset.rendered) return;
@@ -145,18 +149,15 @@ print(f"CAGR: {rate:.2%}")
       const svg = document.createElementNS(svgNS, 'svg');
       svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
       svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-      // sample data
       const data = [120, 180, 160, 220, 260, 300];
       const max = Math.max(...data);
       const pad = 40;
       const step = (w - pad*2) / (data.length - 1);
-      // x-axis
       const axis = document.createElementNS(svgNS, 'line');
       axis.setAttribute('x1', pad); axis.setAttribute('y1', h - pad);
       axis.setAttribute('x2', w - pad); axis.setAttribute('y2', h - pad);
       axis.setAttribute('stroke', 'currentColor');
       svg.appendChild(axis);
-      // line path
       const path = document.createElementNS(svgNS, 'path');
       let d = '';
       data.forEach((v, i) => {
