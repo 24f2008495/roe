@@ -1,20 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROE Repository</title>
+  <meta charset="utf-8" />
+  <title>Quarterly Earnings — Interactive RevealJS Deck</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- RevealJS core + theme + code highlighting theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css">
+
+  <style>
+    :root { --r-main-font-size: calc(0.55vw + 0.55vh + 0.5vmin); }
+    .chart { width: 100%; height: calc(100vh - 240px); margin: 0 auto; }
+    .badge { font-size: 0.6em; padding: .15em .35em; border: 1px solid currentColor; border-radius: .4em; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to ROE Repository</h1>
-    <main>
-        <section>
-            <h2>About</h2>
-            <p>This is the main page for the ROE repository project.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 ROE Repository</p>
-    </footer>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title & Email (with speaker notes) -->
+      <section data-background-color="#0b1426" class="has-dark-background">
+        <h2>Quarterly Earnings Report</h2>
+        <p><small>Technical Consultant: You • <a href="mailto:24f2008495@ds.study.iitm.ac.in">24f2008495@ds.study.iitm.ac.in</a></small></p>
+        <ul>
+          <li class="fragment">Interactive charts</li>
+          <li class="fragment">Live code & math</li>
+          <li class="fragment">Presenter notes <span class="badge">press S</span></li>
+        </ul>
+        <aside class="notes">
+          Welcome the audience. Mention this deck is built in RevealJS and published on GitHub Pages. Keyboard shortcuts: F (fullscreen), S (notes), O (overview), B (pause).
+        </aside>
+      </section>
+
+      <!-- Markdown slide -->
+      <section data-markdown>
+        <textarea data-template>
+## Revenue Highlights _(Markdown slide)_
+
+- **YoY Growth**: `+12.4%`
+- **Net Interest Income**: `₹ 4,512 Cr`
+- **Cost-to-Income**: `48.2%`
+
+---
+
+### KPI Trend (sample)
+
+1. Retail deposits ↑
+2. Corporate advances ↘︎ (mix optimizing)
+3. Digital MAU ↑
+
+> Markdown lets us author slides quickly while keeping content versioned.
+        </textarea>
+      </section>
+
+      <!-- Fragments / animations -->
+      <section>
+        <h2>Gradual Reveal of Key Drivers</h2>
+        <ul>
+          <li class="fragment">Net Interest Margin (NIM) expansion</li>
+          <li class="fragment fade-up">Fee income from payments & wealth</li>
+          <li class="fragment fade-in-then-semi-out">Operating leverage</li>
+          <li class="fragment highlight-current-blue">Credit cost normalization</li>
+        </ul>
+        <aside class="notes">Discuss each driver briefly as it appears. Keep pace ~10–12s per bullet.</aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting + line focus -->
+      <section>
+        <h2>Code Sample — Simple CAGR</h2>
+        <pre><code class="language-python" data-line-numbers="1-3|5-7|9-11">def cagr(begin, end, years):
+    """Compound Annual Growth Rate"""
+    return (end / begin) ** (1/years) - 1
+
+# Example:
+begin, end, years = 100, 141.0, 3
+rate = cagr(begin, end, years)
+print(f"CAGR: {rate:.2%}")
+        </code></pre>
+        <aside class="notes">Explain how we compute CAGR and how it relates to multi‑year revenue growth.</aside>
+      </section>
+
+      <!-- Math (financial formulas) -->
+      <section>
+        <h2>Financial Math</h2>
+        <p>
+          NPV: \( \mathrm{NPV} = \sum_{t=0}^{T} \frac{CF_t}{(1+r)^t} \) <br/>
+          Sharpe: \( S = \frac{E[R_p - R_f]}{\sigma_p} \)
+        </p>
+        <aside class="notes">Define discount rate r for NPV; interpret Sharpe as risk‑adjusted return.</aside>
+      </section>
+
+      <!-- Simple interactive chart (no external libs) -->
+      <section id="chart-slide">
+        <h2>Interactive Illustration</h2>
+        <div id="chart" class="chart"></div>
+        <p class="fragment">Slide change triggers rendering.</p>
+        <aside class="notes">Chart renders on demand for performance.</aside>
+      </section>
+
+      <!-- Publishing tips -->
+      <section>
+        <h2>Logistics & Publishing</h2>
+        <p class="fragment">Hosted on <strong>GitHub Pages</strong></p>
+        <p class="fragment">Refresh cache with <code>?v=2</code></p>
+        <p class="fragment">Speaker notes with <kbd>S</kbd></p>
+        <aside class="notes">Close with where the deck lives and how to force‑refresh via querystring version.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal core + plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      width: 1280,
+      height: 720,
+      margin: 0.05,
+      transition: 'slide',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath, RevealNotes ],
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+        config: 'TeX-AMS_HTML-full'
+      }
+    });
+
+    // Lightweight SVG line chart without external libraries
+    function renderChart() {
+      const el = document.getElementById('chart');
+      if (!el || el.dataset.rendered) return;
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const w = el.clientWidth, h = el.clientHeight;
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      // sample data
+      const data = [120, 180, 160, 220, 260, 300];
+      const max = Math.max(...data);
+      const pad = 40;
+      const step = (w - pad*2) / (data.length - 1);
+      // x-axis
+      const axis = document.createElementNS(svgNS, 'line');
+      axis.setAttribute('x1', pad); axis.setAttribute('y1', h - pad);
+      axis.setAttribute('x2', w - pad); axis.setAttribute('y2', h - pad);
+      axis.setAttribute('stroke', 'currentColor');
+      svg.appendChild(axis);
+      // line path
+      const path = document.createElementNS(svgNS, 'path');
+      let d = '';
+      data.forEach((v, i) => {
+        const x = pad + i*step;
+        const y = h - pad - (v/max)*(h - pad*2);
+        d += (i ? 'L' : 'M') + x + ' ' + y + ' ';
+      });
+      path.setAttribute('d', d.trim());
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', 'currentColor');
+      path.setAttribute('stroke-width', '2');
+      svg.appendChild(path);
+      el.appendChild(svg);
+      el.dataset.rendered = 'true';
+    }
+
+    Reveal.on('slidechanged', evt => {
+      if (evt.currentSlide && evt.currentSlide.id === 'chart-slide') renderChart();
+    });
+    Reveal.on('ready', () => {
+      if (Reveal.getCurrentSlide().id === 'chart-slide') renderChart();
+    });
+  </script>
 </body>
 </html>
