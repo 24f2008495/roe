@@ -24,11 +24,10 @@ marp: true title: Product Documentation — Marp Deck author: Tech Writing Team 
 
 ---
 
-
+![bg cover](https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg)
 
 # Product Overview
-
-*This slide uses a full‑bleed background image.*
+*This slide uses a full-bleed background image.*
 
 ---
 
